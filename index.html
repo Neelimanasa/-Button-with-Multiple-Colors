@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Button with Multiple Colors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3JtNDIyLTA3Ni14LmpwZw.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            color: white;
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow to the text */
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #007bff; /* Initial blue background */
+            color: white;
+            border: none;
+            border-radius: 50px; /* Rounded corners */
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and scale */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        button:active {
+            transform: scale(0.95); /* Scale button down slightly when clicked */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Heading -->
+    <h1>Interactive Button with Multiple Colors</h1>
+
+    <!-- Button -->
+    <button id="colorButton" onclick="changeColor()">Click Me!</button>
+
+    <script>
+        // Array of colors to cycle through
+        const colors = ['#007bff', '#28a745', '#dc3545', '#6f42c1', '#ffc107']; // Blue, Green, Red, Purple, Yellow
+        let currentIndex = 0;
+
+        function changeColor() {
+            // Get the button element
+            const button = document.getElementById("colorButton");
+
+            // Increment the index and reset if we reach the end of the color array
+            currentIndex = (currentIndex + 1) % colors.length;
+
+            // Apply the new background color from the colors array
+            button.style.backgroundColor = colors[currentIndex];
+        }
+    </script>
+
+</body>
+</html>
